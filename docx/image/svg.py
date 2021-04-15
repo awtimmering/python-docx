@@ -44,5 +44,6 @@ class Svg(BaseImageHeader):
         stream.seek(0)
         text = stream.read()
         root = ElementTree.fromstring(text)
-        x_min, y_min, x_max, y_max = [float(coord) for coord in root.attrib['viewBox'].split()]
+        x_min, y_min, x_max, y_max = [
+            float(coord) for coord in root.attrib['viewBox'].split()]
         return x_max - x_min, y_max - y_min
